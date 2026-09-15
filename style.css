@@ -209,7 +209,7 @@ a {
 
 .marquee-arrow {
   position: absolute;
-  top: 33%;
+  top: 50%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
@@ -237,8 +237,8 @@ a {
   outline-offset: 2px;
 }
 
-.marquee-arrow-prev { left: -8px; }
-.marquee-arrow-next { right: -8px; }
+.marquee-arrow-prev { left: -16px; }
+.marquee-arrow-next { right: -16px; }
 
 @media (max-width: 640px) {
   .marquee-item {
