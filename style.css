@@ -209,7 +209,7 @@ a {
 
 .marquee-arrow {
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
