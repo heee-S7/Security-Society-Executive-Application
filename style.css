@@ -159,6 +159,7 @@ a {
   border-bottom: 1px solid #DDD5C0;
 }
 
+
 /* ==========================================================
    Interests gallery
    ========================================================== */
@@ -167,29 +168,64 @@ a {
   margin: -12px 0 32px;
   max-width: 60ch;
 }
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+ 
+.marquee {
+  overflow: hidden;
+  /* Fade the edges so images entering/leaving don't hard-cut */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+  mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
 }
-
-.gallery-item {
+ 
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  animation: marquee-scroll 28s linear infinite;
+}
+ 
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+ 
+.marquee-item {
+  flex: 0 0 auto;
+  width: 260px;
   margin: 0;
 }
-
-.gallery-item img {
-  aspect-ratio: 1 / 1;
+ 
+.marquee-item img {
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 4px;
   width: 100%;
 }
-
-.gallery-item figcaption {
+ 
+.marquee-item figcaption {
   font-size: 14px;
   color: var(--text-muted);
-  margin-top: 8px;
+  margin-top: 10px;
 }
+ 
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  /* -50% because the track contains two copies of the image set back to back */
+  to { transform: translateX(-50%); }
+}
+ 
+@media (max-width: 640px) {
+  .marquee-item {
+    width: 200px;
+  }
+}
+ 
+/* Respect reduced motion: freeze on the first frame instead of animating */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+ 
 
 /* ==========================================================
    Links (footer, link-tree style)

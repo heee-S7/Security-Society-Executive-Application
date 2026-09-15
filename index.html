@@ -69,39 +69,46 @@
     </section>
 
     <!-- ============ INTERESTS GALLERY ============ -->
-     <section class="section interests" id="interests">
+        <section class="section interests" id="interests">
       <div class="section-inner">
         <h2>Outside the society</h2>
         <p class="interests-intro">
-          A few parts of my life outside of coursework (I promise I touch grass!)
+          A few things that matter to me beyond coursework and committee meetings.
         </p>
-        <div class="carousel" id="carousel">
-          <div class="carousel-track" id="carouselTrack">
+        <div class="marquee" id="marquee">
+          <div class="marquee-track" id="marqueeTrack">
             <!-- Duplicate this figure block for each image. Caption is optional. -->
-            <figure class="carousel-item">
+            <figure class="marquee-item">
               <img src="SecSocAppPics/IMG_3282.jpeg" alt="Describe this photo">
             </figure>
-            <figure class="carousel-item">
+            <figure class="marquee-item">
               <img src="SecSocAppPics/IMG_3455.PNG" alt="Describe this photo">
               <figcaption>I love sweet food.</figcaption>
             </figure>
-            <figure class="carousel-item">
+            <figure class="marquee-item">
+              <img src="images/interest-3.jpg" alt="Describe this photo">
+              <figcaption>Caption — what this is or why it matters to you.</figcaption>
+            </figure>
+            
+            <!-- This second copy of the same images is required for the seamless loop — leave it in and just mirror any edits you make above. -->
+            <figure class="marquee-item" aria-hidden="true">
+              <img src="SecSocAppPics/IMG_3282.jpeg" alt="Describe this photo">
+            </figure>
+            <figure class="marquee-item" aria-hidden="true">
+              <img src="SecSocAppPics/IMG_3455.PNG" alt="Describe this photo">
+              <figcaption>I love sweet food.</figcaption>
+            </figure>
+            <figure class="marquee-item" aria-hidden="true">
               <img src="SecSocAppPics/IMG_3461.jpg" alt="Describe this photo">
               <figcaption>An embroidery piece I completed.</figcaption>
             </figure>
           </div>
- 
-          <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" aria-label="Previous photo">&#8249;</button>
-          <button class="carousel-arrow carousel-arrow-next" id="carouselNext" aria-label="Next photo">&#8250;</button>
- 
-          <div class="carousel-dots" id="carouselDots"></div>
         </div>
       </div>
     </section>
  
   </main>
  
-
   <!-- ============ LINKS (link-tree style) ============ -->
   <footer class="links" id="links">
     <div class="links-inner">
