@@ -170,62 +170,88 @@ a {
 }
  
 .marquee {
-  overflow: hidden;
+  position: relative;
   /* Fade the edges so images entering/leaving don't hard-cut */
   -webkit-mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
   mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
 }
- 
+
 .marquee-track {
   display: flex;
-  width: max-content;
   gap: 20px;
-  animation: marquee-scroll 28s linear infinite;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
 }
- 
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track {
-  animation-play-state: paused;
+
+.marquee-track::-webkit-scrollbar {
+  display: none;
 }
- 
+
 .marquee-item {
   flex: 0 0 auto;
   width: 260px;
   margin: 0;
 }
- 
+
 .marquee-item img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 4px;
   width: 100%;
 }
- 
+
 .marquee-item figcaption {
   font-size: 14px;
   color: var(--text-muted);
   margin-top: 10px;
 }
- 
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  /* -50% because the track contains two copies of the image set back to back */
-  to { transform: translateX(-50%); }
+
+.marquee-arrow {
+  position: absolute;
+  top: 33%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(22, 35, 58, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
- 
+
+.marquee-arrow:hover,
+.marquee-arrow:focus-visible {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+.marquee-arrow:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.marquee-arrow-prev { left: -8px; }
+.marquee-arrow-next { right: -8px; }
+
 @media (max-width: 640px) {
   .marquee-item {
     width: 200px;
   }
-}
- 
-/* Respect reduced motion: freeze on the first frame instead of animating */
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
+  .marquee-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
   }
+  .marquee-arrow-prev { left: 4px; }
+  .marquee-arrow-next { right: 4px; }
 }
- 
 
 /* ==========================================================
    Links (footer, link-tree style)
